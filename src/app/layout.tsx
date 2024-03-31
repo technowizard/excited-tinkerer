@@ -3,15 +3,21 @@ import { Figtree } from 'next/font/google';
 
 import '@/styles/globals.css';
 
-import { SiteHeader } from '@/components/layouts/site-header';
-import { ThemeProvider } from '@/components/providers';
 import { cn } from '@/lib/utils';
+import { defaultMetadata } from '~/site.config';
 
 const figtree = Figtree({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  description: 'A starter template with Next.js, TypeScript, and shadcn/ui',
-  title: 'Next.js + TypeScript + shadcn/ui Starter',
+  description: defaultMetadata.description,
+  robots: {
+    follow: true,
+    index: true
+  },
+  title: {
+    absolute: defaultMetadata.title,
+    template: `%s | ${defaultMetadata.title}`
+  }
 };
 
 export default function RootLayout({ children }: React.PropsWithChildren) {
@@ -19,14 +25,11 @@ export default function RootLayout({ children }: React.PropsWithChildren) {
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          'min-h-screen bg-denim-100 antialiased transition dark:bg-denim-950',
+          'bg-denim-50 antialiased transition dark:bg-denim-950',
           figtree.className,
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <SiteHeader />
-          {children}
-        </ThemeProvider>
+        {children}
       </body>
     </html>
   );
