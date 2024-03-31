@@ -1,4 +1,4 @@
-import { darkModeTransition } from '@/lib/constants';
+import { darkModeTransition } from '@/constants/motion';
 import { motion } from 'framer-motion';
 
 export function SunIcon() {
@@ -17,11 +17,11 @@ export function SunIcon() {
       fill="none"
       height="1em"
       key="sun"
+      // centers the rotation anchor point vertically & horizontally
+      style={{ originX: '50%', originY: '50%' }}
       viewBox="0 0 24 24"
       width="1em"
       xmlns="http://www.w3.org/2000/svg"
-      // centers the rotation anchor point vertically & horizontally
-      style={{ originX: '50%', originY: '50%' }}
     >
       <motion.circle
         animate="animate"

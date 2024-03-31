@@ -1,4 +1,4 @@
-import { darkModeTransition } from '@/lib/constants';
+import { darkModeTransition } from '@/constants/motion';
 import { motion } from 'framer-motion';
 
 export function MoonIcon() {
