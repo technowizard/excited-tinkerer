@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+import { PluginAPI } from 'tailwindcss/types/config';
 
 const config = {
   content: [
@@ -8,7 +9,7 @@ const config = {
     './src/**/*.{ts,tsx}',
   ],
   darkMode: ['class'],
-  plugins: [require('tailwindcss-animate')],
+  plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')],
   prefix: '',
   theme: {
     container: {
@@ -91,6 +92,19 @@ const config = {
           800: '#424242',
           900: '#0a0a0a',
         },
+        ochre: {
+          100: '#f8eade',
+          200: '#f1d8c1',
+          300: '#e8be97',
+          400: '#dda169',
+          50: '#fcf7f3',
+          500: '#cd7b2e',
+          600: '#bb702a',
+          700: '#a26124',
+          800: '#85501e',
+          900: '#5c3715',
+          950: '#472a10',
+        },
         popover: {
           DEFAULT: 'hsl(var(--popover))',
           foreground: 'hsl(var(--popover-foreground))',
@@ -129,6 +143,26 @@ const config = {
           to: { height: '0' },
         },
       },
+      typography: (theme: PluginAPI['theme']) => ({
+        DEFAULT: {
+          css: {
+            a: {
+              backgroundImage:
+                'linear-gradient(transparent, transparent), linear-gradient(#052748, #052748)',
+              color: theme('colors.denim.900'),
+            },
+          },
+        },
+        invert: {
+          css: {
+            a: {
+              backgroundImage:
+                'linear-gradient(transparent, transparent), linear-gradient(#dda169, #dda169)',
+              color: theme('colors.ochre.400'),
+            },
+          },
+        },
+      }),
     },
   },
 } satisfies Config;
