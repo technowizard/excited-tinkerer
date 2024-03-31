@@ -3,7 +3,11 @@
 export const defaultMetadata = {
   description: 'Software engineer, an avid learner and generalist',
   email: 'mail@mfadhil.me',
-  title: 'Muhammad Fadhil',
+  github: {
+    repository: "excited-tinkerer",
+    username: 'technowizard'
+  },
+  title: 'Muhammad Fadhil'
 };
 
 export const customMetadata = {
