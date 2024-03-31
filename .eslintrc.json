@@ -9,8 +9,7 @@
     "plugin:import/typescript",
     "plugin:react-hooks/recommended",
     "plugin:react/recommended",
-    "plugin:tailwindcss/recommended",
-    "prettier"
+    "plugin:tailwindcss/recommended"
   ],
   "env": { "browser": true, "es2024": true, "node": true },
   "ignorePatterns": ["dist", ".eslintrc.json"],
