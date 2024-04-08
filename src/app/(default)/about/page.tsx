@@ -4,8 +4,8 @@ import { links } from '@/constants/links';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'About'
-}
+  title: 'About',
+};
 
 export default function AboutPage() {
   return (

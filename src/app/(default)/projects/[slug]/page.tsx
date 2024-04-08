@@ -2,9 +2,9 @@ import { getArticleRenderers } from '@/components/keystatic/article-renderers';
 import ProseArticle from '@/components/prose-article';
 import { getProject, getSortedProjects } from '@/lib/keystatic';
 import { DocumentRenderer } from '@keystatic/core/renderer';
+import { defaultMetadata } from '~/site.config';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { defaultMetadata } from '~/site.config';
 
 interface ProjectPageProps {
   params: {
@@ -12,24 +12,30 @@ interface ProjectPageProps {
   };
 }
 
-export const dynamicParams = false
+export const dynamicParams = false;
 
-export async function generateStaticParams(): Promise<ProjectPageProps['params'][]> {
-  const projects = await getSortedProjects()
+export async function generateStaticParams(): Promise<
+  ProjectPageProps['params'][]
+> {
+  const projects = await getSortedProjects();
 
-  return projects.map(({slug}) => ({ slug }))
+  return projects.map(({ slug }) => ({ slug }));
 }
 
-export async function generateMetadata({params}: ProjectPageProps): Promise<Metadata> {
-  const project = await getProject(params.slug).catch(() => notFound())
+export async function generateMetadata({
+  params,
+}: ProjectPageProps): Promise<Metadata> {
+  const project = await getProject(params.slug).catch(() => notFound());
 
   return {
-    authors: [{
-      name: defaultMetadata.title
-    }],
+    authors: [
+      {
+        name: defaultMetadata.title,
+      },
+    ],
     description: project.subtitle,
-    title: project.title
-  }
+    title: project.title,
+  };
 }
 
 export default async function Page({ params }: ProjectPageProps) {

@@ -1,11 +1,11 @@
 import { getSortedProjects } from '@/lib/keystatic';
-import { ProjectCard } from './_components/project-card';
 import { Metadata } from 'next';
+import { ProjectCard } from './_components/project-card';
 
 export const metadata: Metadata = {
   description: "Things I've made trying to put my legacy on the universe.",
-  title: 'Projects'
-}
+  title: 'Projects',
+};
 
 export default async function Page() {
   const projects = await getSortedProjects();

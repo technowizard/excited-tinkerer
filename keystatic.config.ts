@@ -1,12 +1,12 @@
 /* eslint-disable sort-keys-fix/sort-keys-fix */
+import { BrandMark } from '@/components/keystatic/brand-mark';
 import { articleSchema } from '@/schema/articles';
 import { projectSchema } from '@/schema/projects';
 import { config } from '@keystatic/core';
 import { defaultMetadata } from './site.config';
-import { BrandMark } from '@/components/keystatic/brand-mark';
 
 // production handled by vercel
-const isProduction = process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
+const isProduction = process.env.NEXT_PUBLIC_VERCEL_ENV === 'production';
 
 export default config({
   collections: {
@@ -29,13 +29,12 @@ export default config({
         kind: 'local',
       },
   ui: {
-      brand: {
-        mark: BrandMark,
-        name: defaultMetadata.title,
-      },
-      navigation: {
-        Content: ['articles', 'projects'],
-      }
+    brand: {
+      mark: BrandMark,
+      name: defaultMetadata.title,
     },
-  }
-);
+    navigation: {
+      Content: ['articles', 'projects'],
+    },
+  },
+});

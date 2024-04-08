@@ -12,12 +12,12 @@ export const metadata: Metadata = {
   description: defaultMetadata.description,
   robots: {
     follow: true,
-    index: true
+    index: true,
   },
   title: {
     absolute: defaultMetadata.title,
-    template: `%s | ${defaultMetadata.title}`
-  }
+    template: `%s | ${defaultMetadata.title}`,
+  },
 };
 
 export default function RootLayout({ children }: React.PropsWithChildren) {

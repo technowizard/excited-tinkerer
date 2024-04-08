@@ -1,11 +1,11 @@
 import { getSortedArticles } from '@/lib/keystatic';
-import { ArticleCard } from './_components/article-card';
 import { Metadata } from 'next';
+import { ArticleCard } from './_components/article-card';
 
 export const metadata: Metadata = {
   description: 'Writing on software development and random personal thoughts.',
-  title: 'Articles'
-}
+  title: 'Articles',
+};
 
 export default async function Page() {
   const articles = await getSortedArticles();

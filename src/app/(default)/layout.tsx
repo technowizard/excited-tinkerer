@@ -1,4 +1,3 @@
-
 import '@/styles/globals.css';
 
 import { SiteFooter } from '@/components/layouts/site-footer';

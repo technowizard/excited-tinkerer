@@ -3,10 +3,10 @@ import ProseArticle from '@/components/prose-article';
 import { getArticle, getSortedArticles } from '@/lib/keystatic';
 import { formatLongDate } from '@/lib/utils';
 import { DocumentRenderer } from '@keystatic/core/renderer';
+import { defaultMetadata } from '~/site.config';
 import { CalendarIcon, FilePenIcon } from 'lucide-react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { defaultMetadata } from '~/site.config';
 
 interface ArticlePageProps {
   params: {
@@ -14,24 +14,30 @@ interface ArticlePageProps {
   };
 }
 
-export const dynamicParams = false
+export const dynamicParams = false;
 
-export async function generateStaticParams(): Promise<ArticlePageProps['params'][]> {
-  const articles = await getSortedArticles()
+export async function generateStaticParams(): Promise<
+  ArticlePageProps['params'][]
+> {
+  const articles = await getSortedArticles();
 
-  return articles.map(({slug}) => ({ slug }))
+  return articles.map(({ slug }) => ({ slug }));
 }
 
-export async function generateMetadata({params}: ArticlePageProps): Promise<Metadata> {
-  const article = await getArticle(params.slug).catch(() => notFound())
+export async function generateMetadata({
+  params,
+}: ArticlePageProps): Promise<Metadata> {
+  const article = await getArticle(params.slug).catch(() => notFound());
 
   return {
-    authors: [{
-      name: defaultMetadata.title
-    }],
+    authors: [
+      {
+        name: defaultMetadata.title,
+      },
+    ],
     description: article.description,
-    title: article.title
-  }
+    title: article.title,
+  };
 }
 
 export default async function Page({ params }: ArticlePageProps) {
