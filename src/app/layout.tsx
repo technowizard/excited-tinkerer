@@ -25,9 +25,9 @@ export default function RootLayout({ children }: React.PropsWithChildren) {
     <html lang="en" suppressHydrationWarning>
       <head>
         <script
+          data-website-id="a56df3d3-60a7-4bd5-ba81-225b31e71070"
           defer
           src="https://stats.fdhl.dev/script.js"
-          data-website-id="a56df3d3-60a7-4bd5-ba81-225b31e71070"
         ></script>
       </head>
       <body
