@@ -23,6 +23,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: React.PropsWithChildren) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          defer
+          src="https://stats.fdhl.dev/script.js"
+          data-website-id="a56df3d3-60a7-4bd5-ba81-225b31e71070"
+        ></script>
+      </head>
       <body
         className={cn(
           'bg-denim-50 antialiased transition dark:bg-denim-950',
